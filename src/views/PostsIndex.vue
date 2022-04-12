@@ -24,10 +24,11 @@ export default {
     <h1>Read the Things Here</h1>
     <div v-for="post in posts" v-bind:key="post.id">
       <h2>{{ post.name }}</h2>
-      <img v-bind:src="post.url" v-bind:alt="post.name" />
+      <router-link v-bind:to="`/posts/${post.id}`">
+        <img v-bind:src="post.image" v-bind:alt="post.name" />
+      </router-link>
       <h2>{{ post.title }}</h2>
       <p>{{ post.body }}</p>
-      <p>{{ post.image }}</p>
     </div>
   </div>
 </template>
