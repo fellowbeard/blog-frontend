@@ -38,6 +38,10 @@ export default {
         Body:
         <input type="text" v-model="newPost.body" />
       </p>
+      <small v-if="newPost?.body?.length > 0 && newPost?.body?.length <= 250">
+        Remaining characters: {{ 250 - newPost?.body?.length }}
+      </small>
+      <small v-if="newPost?.body?.length > 250" class="text-danger">Post length can't exceed 250 characters.</small>
       <p>
         Image:
         <input type="text" v-model="newPost.image" />

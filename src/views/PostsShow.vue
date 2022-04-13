@@ -11,6 +11,7 @@ export default {
   },
   created: function () {
     this.showPosts();
+    // this.destroyPost();
   },
   methods: {
     showPosts() {
@@ -18,8 +19,8 @@ export default {
         this.post = response.data;
       });
     },
-    destroyRecipe() {
-      axios.delete(`/posts/${this.post.id}`).then((response) => {
+    destroyPost() {
+      axios.delete(`/posts/${this.newPost.id}`).then((response) => {
         console.log(response);
         this.$router.push("/posts");
       });
@@ -31,7 +32,6 @@ export default {
 <template>
   <div class="home">
     <h1>Post Info</h1>
-
     <p>Title: {{ post.title }}</p>
     <p>Body: {{ post.body }}</p>
     <router-link v-bind:to="`/posts/${post.id}`">
